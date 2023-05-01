@@ -31,18 +31,27 @@ class FlightDetailController extends GetxController {
     });
   }
 
-  addToCart() {
+  addToCart() async {
     EasyLoading.show();
     var storage = GetStorage();
-    var body = {"flightId": flightId, "userId": storage.read('userId')};
+    String userId = storage.read('userId');
+    var body = {"flightId": flightId, "userId": userId};
+
     FlightProvider().bookFlight(body: body).then((response) {
       EasyLoading.dismiss();
-      showSnackBar("Message", "light is added to cart", Colors.lightBlueAccent);
       Get.back();
+      showSnackBar(
+          "Message", "Flight is added to cart", Colors.lightBlueAccent);
     }, onError: (err) {
       EasyLoading.dismiss();
       showSnackBar("Error", err.toString(), Colors.red);
       update();
     });
+
+    // if (result) {
+
+    // } else {
+    //   showSnackBar("Error", "Add to cart fail", Colors.red);
+    // }
   }
 }

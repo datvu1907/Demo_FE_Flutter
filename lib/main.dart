@@ -1,4 +1,3 @@
-import 'dart:typed_data';
 import 'package:crypto_swap/app/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -46,66 +45,52 @@ class MyApp extends StatelessWidget {
       initRoute = AppPages.INITIAL;
     }
     return GetMaterialApp(
-      initialBinding: BindingsBuilder(
-        () {
-          Get.put(SplashController());
-        },
-      ),
-      debugShowCheckedModeBanner: false,
-      title: 'Booking Flight',
-      theme: ThemeData(
-        textTheme: GoogleFonts.sourceSansProTextTheme(
-          Theme.of(context).textTheme,
+        initialBinding: BindingsBuilder(
+          () {
+            Get.put(SplashController());
+          },
         ),
-        backgroundColor: AppColors.screenBackground,
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(AppColors.ctaColor),
-            textStyle: MaterialStateProperty.all(
-              const TextStyle(
-                  color: AppColors.textPrimaryColor,
-                  fontWeight: FontWeight.bold),
+        debugShowCheckedModeBanner: false,
+        title: 'Booking Flight',
+        theme: ThemeData(
+          textTheme: GoogleFonts.sourceSansProTextTheme(
+            Theme.of(context).textTheme,
+          ),
+          backgroundColor: AppColors.screenBackground,
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(AppColors.ctaColor),
+              textStyle: MaterialStateProperty.all(
+                const TextStyle(
+                    color: AppColors.textPrimaryColor,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
           ),
+          dialogTheme: const DialogTheme(
+              backgroundColor: AppColors.white,
+              titleTextStyle: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: AppColors.primaryColor,
+              ),
+              contentTextStyle: TextStyle(
+                fontSize: 17,
+                fontWeight: FontWeight.normal,
+                color: AppColors.primaryColor,
+              ),
+              elevation: 20),
         ),
-        dialogTheme: const DialogTheme(
-            backgroundColor: AppColors.white,
-            titleTextStyle: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: AppColors.primaryColor,
-            ),
-            contentTextStyle: TextStyle(
-              fontSize: 17,
-              fontWeight: FontWeight.normal,
-              color: AppColors.primaryColor,
-            ),
-            elevation: 20),
-      ),
-      supportedLocales: const <Locale>[
-        Locale('en', ''),
-        Locale('zh', ''),
-        Locale('ms', ''),
-      ],
-      // locale: LanguageSetting.instance.currentLocale,
-      // fallbackLocale: LanguageSetting.instance.fallbackLocale,
-      // translations: LanguageSetting.instance,
-      initialRoute: AppPages.SPLASH,
-      getPages: AppPages.routes,
-      // builder: EasyLoading.init(
-      //   builder: (context, child) {
-      //     return FutureBuilder<void>(
-      //       key: const ValueKey('initFuture'),
-      //       future: Get.find<SplashController>().init(),
-      //       builder: (context, snapshot) {
-      //         if (snapshot.connectionState == ConnectionState.done) {
-      //           return child ?? const SizedBox.shrink();
-      //         }
-      //         return const SplashScreen();
-      //       },
-      //     );
-      //   },
-      // )
-    );
+        supportedLocales: const <Locale>[
+          Locale('en', ''),
+          Locale('zh', ''),
+          Locale('ms', ''),
+        ],
+        // locale: LanguageSetting.instance.currentLocale,
+        // fallbackLocale: LanguageSetting.instance.fallbackLocale,
+        // translations: LanguageSetting.instance,
+        initialRoute: AppPages.SPLASH,
+        getPages: AppPages.routes,
+        builder: EasyLoading.init());
   }
 }

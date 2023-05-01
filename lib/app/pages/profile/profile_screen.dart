@@ -54,6 +54,7 @@ class ProfileScreen extends GetView<ProfileController> {
                     height: 10,
                   ),
                   InkWell(
+                    onTap: () => Get.toNamed(Routes.orderHistory),
                     child: buildItem(
                         title: 'Order History', iconData: Icons.list_alt),
                   ),

@@ -38,6 +38,19 @@ class FlightProvider extends GetConnect {
       if (response.status.hasError) {
         return Future.error(response.statusText!);
       } else {
+        return response.body['Message'];
+      }
+    } catch (exception) {
+      return Future.error(exception.toString());
+    }
+  }
+
+  Future<dynamic> getBooking({required dynamic body}) async {
+    try {
+      final response = await post(baseURL + "getBooking", jsonEncode(body));
+      if (response.status.hasError) {
+        return Future.error(response.statusText!);
+      } else {
         return response.body['data'];
       }
     } catch (exception) {

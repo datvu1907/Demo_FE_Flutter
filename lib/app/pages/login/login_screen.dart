@@ -115,7 +115,7 @@ class LoginScreen extends GetView<LoginController> {
                 borderRadius: BorderRadius.circular(8.0),
                 border: Border.all(
                     color: controller.error.value ? Colors.red : Colors.white),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                       color: AppColors.shadow,
                       blurRadius: 10,
@@ -184,7 +184,7 @@ class LoginScreen extends GetView<LoginController> {
                 borderRadius: BorderRadius.circular(8.0),
                 border: Border.all(
                     color: controller.error.value ? Colors.red : Colors.white),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                       color: AppColors.shadow,
                       blurRadius: 10,

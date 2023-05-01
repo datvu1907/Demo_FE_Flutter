@@ -70,12 +70,12 @@ class CartScreen extends GetView<CartController> {
               itemBuilder: (BuildContext context, index) {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
-                  child: flightItem(controller.listFlight[index]),
+                  child: flightItem(controller.listFlight[index], index),
                 );
               })
         ],
       );
-  Widget flightItem(FlightModel flight) => GestureDetector(
+  Widget flightItem(FlightModel flight, int index) => GestureDetector(
         child: Container(
             height: 100,
             width: Get.width - 50,
@@ -122,14 +122,18 @@ class CartScreen extends GetView<CartController> {
                         ],
                       ),
                     ),
-                    const Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 40),
-                        child: Icon(
-                          Icons.paid,
-                          color: Colors.green,
-                          size: 20,
-                        ))
+                    Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 40),
+                        child: GestureDetector(
+                            onTap: () {
+                              controller.checkoutPayment(index);
+                            },
+                            child: const Icon(
+                              Icons.payments,
+                              color: Colors.green,
+                              size: 20,
+                            )))
                   ],
                 ),
               ],

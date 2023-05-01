@@ -58,7 +58,7 @@ class OrderHistory extends GetView<OrderHistoryController> {
   Widget buildListReward() => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text("All Order",
+          const Text("Order History",
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontSize: 14,
