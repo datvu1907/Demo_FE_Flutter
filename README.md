@@ -1,6 +1,6 @@
-# crypto_swap
+# Demo FE Flutterr
 
-A decentralize exchange application
+A Demo using Flutter and GetX state managment
 
 ## Getting Started
 
